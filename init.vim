@@ -19,6 +19,9 @@ if dein#load_state('/home/onaga/.random')
   call dein#add('Shougo/neosnippet-snippets')
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('zchee/deoplete-jedi')
+  call dein#add('klen/python-mode')
+  call dein#add('majutsushi/tagbar')
+  call dein#add('rosenfeld/conque-term')
 
   " You can specify revision/branch/tag.
   call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -58,8 +61,11 @@ menu Encoding.utf-8 :e ++enc=utf8<CR>
 menu Encoding.koi8-u :e ++enc=koi8-u ++ff=unix<CR>
 
 map <F8> :emenu Encoding.<TAB>
+nmap <F7> :TagbarToggle<CR>
 
 let g:deoplete#enable_at_startup = 1
+let g:pymode_python = 'python3'
+let g:pymode_doc_bind = "<C-S-d>"
 
 " deoplete tab-complete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
@@ -69,3 +75,56 @@ augroup vimrc
   " write.
   autocmd BufRead,BufWritePre,FileWritePre * silent! %s/[\r \t]\+$//
 augroup END
+
+" show if line is longer than 80
+augroup vimrc_autocmds
+    autocmd!
+    autocmd FileType ruby,python,javascript,c,cpp highlight Excess ctermbg=DarkGrey guibg=Black
+    autocmd FileType ruby,python,javascript,c,cpp match Excess /\%80v.*/
+    autocmd FileType ruby,python,javascript,c,cpp set nowrap
+augroup END
+
+"=====================================================
+" Python-mode settings
+"=====================================================
+" turn off autocomplete, use deoplete instead
+let g:pymode_rope = 0
+let g:pymode_rope_completion = 0
+let g:pymode_rope_complete_on_dot = 0
+
+" Documentation
+let g:pymode_doc = 1
+let g:pymode_doc_key = 'K'
+" Code checking
+let g:pymode_lint = 1
+let g:pymode_lint_checker = "pyflakes,pep8"
+" Code checking after save
+let g:pymode_lint_write = 1
+
+" virtualenv support
+let g:pymode_virtualenv = 1
+
+let g:pymode_breakpoint = 1
+let g:pymode_breakpoint_key = "<C-S-b>"
+let g:pymode_breakpoint_cmd = ''
+
+" syntax highlight
+let g:pymode_syntax = 1
+let g:pymode_syntax_all = 1
+let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+let g:pymode_syntax_space_errors = g:pymode_syntax_all
+
+" turn off autofold
+let g:pymode_folding = 0
+
+let g:pymode_run = 1
+let g:pymode_run_bind = "<F5>"
+let g:pymode_motion = 1
+
+" nnoremap <F5> :ConqueTermSplit ipython<CR>
+" а debug-mode на <F6>
+nnoremap <F6> :exe "ConqueTermSplit ipython " . expand("%")<CR>
+
+"=====================================================
+" Python-mode end settings
+"=====================================================
