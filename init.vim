@@ -49,6 +49,7 @@ autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr>
 set number
 set shiftwidth=4
 set clipboard+=unnamedplus
+set foldmethod=indent
 
 nnoremap <C-c> "+y
 vnoremap <C-c> "+y
@@ -64,8 +65,6 @@ map <F8> :emenu Encoding.<TAB>
 nmap <F7> :TagbarToggle<CR>
 
 let g:deoplete#enable_at_startup = 1
-let g:pymode_python = 'python3'
-let g:pymode_doc_bind = "<C-S-d>"
 
 " deoplete tab-complete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
@@ -87,6 +86,7 @@ augroup END
 "=====================================================
 " Python-mode settings
 "=====================================================
+
 " turn off autocomplete, use deoplete instead
 let g:pymode_rope = 0
 let g:pymode_rope_completion = 0
@@ -98,8 +98,7 @@ let g:pymode_doc_key = 'K'
 " Code checking
 let g:pymode_lint = 1
 let g:pymode_lint_checker = "pyflakes,pep8"
-" Code checking after save
-let g:pymode_lint_write = 1
+let g:pymode_ling_message = 1
 
 " virtualenv support
 let g:pymode_virtualenv = 1
@@ -114,17 +113,15 @@ let g:pymode_syntax_all = 1
 let g:pymode_syntax_indent_errors = g:pymode_syntax_all
 let g:pymode_syntax_space_errors = g:pymode_syntax_all
 
-" turn off autofold
-let g:pymode_folding = 0
+let g:pymode_folding = 1
 
 let g:pymode_run = 1
 let g:pymode_run_bind = "<F5>"
 let g:pymode_motion = 1
-
-" nnoremap <F5> :ConqueTermSplit ipython<CR>
-" а debug-mode на <F6>
-nnoremap <F6> :exe "ConqueTermSplit ipython " . expand("%")<CR>
-
+let g:pymode_python = 'python3'
+let g:pymode_doc_bind = "<C-S-d>"
+let g:pymode_options_colorcolumn = 0
+let g:pymode_lint_ignore = "W0612,W0611"
 "=====================================================
 " Python-mode end settings
 "=====================================================
