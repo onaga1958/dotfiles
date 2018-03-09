@@ -19,6 +19,10 @@ if dein#load_state('/home/onaga/.random')
   call dein#add('Shougo/neosnippet-snippets')
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('zchee/deoplete-jedi')
+  call dein#add('zchee/deoplete-clang')
+  call dein#add('Shougo/neocomplete.vim')
+  call dein#add('szw/vim-tags')
+  call dein#add('scrooloose/nerdcommenter')
   call dein#add('klen/python-mode')
   call dein#add('majutsushi/tagbar')
   call dein#add('rosenfeld/conque-term')
@@ -42,14 +46,44 @@ endif
 
 "End dein Scripts-------------------------
 
+" Jump to particular tab directly
+"NORMAL mode bindings for gvim
+noremap <unique> <M-1> 1gt
+noremap <unique> <M-2> 2gt
+noremap <unique> <M-3> 3gt
+noremap <unique> <M-4> 4gt
+noremap <unique> <M-5> 5gt
+noremap <unique> <M-6> 6gt
+noremap <unique> <M-7> 7gt
+noremap <unique> <M-8> 8gt
+noremap <unique> <M-9> 9gt
+noremap <unique> <M-0> 10gt
+
+"INSERT mode bindings for gvim
+inoremap <unique> <M-1> <C-O>1gt
+inoremap <unique> <M-2> <C-O>2gt
+inoremap <unique> <M-3> <C-O>3gt
+inoremap <unique> <M-4> <C-O>4gt
+inoremap <unique> <M-5> <C-O>5gt
+inoremap <unique> <M-6> <C-O>6gt
+inoremap <unique> <M-7> <C-O>7gt
+inoremap <unique> <M-8> <C-O>8gt
+inoremap <unique> <M-9> <C-O>9gt
+inoremap <unique> <M-0> <C-O>10gt
+
 let g:python3_host_prog = '/usr/bin/python3'
+let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
+let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
+set guicursor=
 call deoplete#enable()
 autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr>
 
 set number
+set expandtab
 set shiftwidth=4
 set clipboard+=unnamedplus
 set foldmethod=indent
+set more
 
 nnoremap <C-c> "+y
 vnoremap <C-c> "+y
@@ -79,7 +113,7 @@ augroup END
 augroup vimrc_autocmds
     autocmd!
     autocmd FileType ruby,python,javascript,c,cpp highlight Excess ctermbg=DarkGrey guibg=Black
-    autocmd FileType ruby,python,javascript,c,cpp match Excess /\%80v.*/
+    autocmd FileType ruby,python,javascript,c,cpp match Excess /\%100v.*/
     autocmd FileType ruby,python,javascript,c,cpp set nowrap
 augroup END
 
@@ -95,6 +129,8 @@ let g:pymode_rope_complete_on_dot = 0
 " Documentation
 let g:pymode_doc = 1
 let g:pymode_doc_key = 'K'
+let g:pymode_doc_bind = "<C-d>"
+
 " Code checking
 let g:pymode_lint = 1
 let g:pymode_lint_checker = "pyflakes,pep8"
@@ -104,7 +140,7 @@ let g:pymode_ling_message = 1
 let g:pymode_virtualenv = 1
 
 let g:pymode_breakpoint = 1
-let g:pymode_breakpoint_key = "<C-S-b>"
+let g:pymode_breakpoint_key = "<C-b>"
 let g:pymode_breakpoint_cmd = ''
 
 " syntax highlight
@@ -112,6 +148,7 @@ let g:pymode_syntax = 1
 let g:pymode_syntax_all = 1
 let g:pymode_syntax_indent_errors = g:pymode_syntax_all
 let g:pymode_syntax_space_errors = g:pymode_syntax_all
+let g:pymode_options_max_line_length = 99
 
 let g:pymode_folding = 1
 
@@ -119,9 +156,9 @@ let g:pymode_run = 1
 let g:pymode_run_bind = "<F5>"
 let g:pymode_motion = 1
 let g:pymode_python = 'python3'
-let g:pymode_doc_bind = "<C-S-d>"
 let g:pymode_options_colorcolumn = 0
-let g:pymode_lint_ignore = "W0612,W0611"
+let g:pymode_lint_ignore = "E741,W0612,W0611"
+"W0612,W0611"
 "=====================================================
 " Python-mode end settings
 "=====================================================
