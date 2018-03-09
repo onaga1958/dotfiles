@@ -26,6 +26,9 @@ if dein#load_state('/home/onaga/.random')
   call dein#add('klen/python-mode')
   call dein#add('majutsushi/tagbar')
   call dein#add('rosenfeld/conque-term')
+  call dein#add('vim-airline/vim-airline')
+  call dein#add('vim-airline/vim-airline-themes')
+  call dein#add('vim-syntastic/syntastic')
 
   " You can specify revision/branch/tag.
   call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -77,6 +80,23 @@ let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
 set guicursor=
 call deoplete#enable()
 autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr>
+
+" mapping for specific tags opening
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
+" add 256 colors in vim for airline
+set t_Co=256
+let g:airline_theme='luna'
+
+" syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 set number
 set expandtab
