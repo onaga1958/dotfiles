@@ -1,18 +1,22 @@
+" to setup it for your environment you need to change runtimepath,
+" python3_host_prog, and arguments in dein#load_state, dein#begin
+" and first dein#add
+
 "dein Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
 endif
 
 " Required:
-set runtimepath+=/home/onaga/.random/repos/github.com/Shougo/dein.vim
+set runtimepath+=/Users/onaga/.local/share/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/home/onaga/.random')
-  call dein#begin('/home/onaga/.random')
+if dein#load_state('/Users/onaga/.local/share/dein')
+  call dein#begin('/Users/onaga/.local/share/dein')
 
   " Let dein manage dein
   " Required:
-  call dein#add('/home/onaga/.random/repos/github.com/Shougo/dein.vim')
+  call dein#add('/Users/onaga/.local/share/dein/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here:
   call dein#add('Shougo/neosnippet.vim')
@@ -74,7 +78,7 @@ inoremap <unique> <M-8> <C-O>8gt
 inoremap <unique> <M-9> <C-O>9gt
 inoremap <unique> <M-0> <C-O>10gt
 
-let g:python3_host_prog = '/usr/bin/python3'
+let g:python3_host_prog = '/usr/local/bin/python3'
 let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
 let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
 set guicursor=
