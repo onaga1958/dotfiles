@@ -53,6 +53,15 @@ endif
 
 "End dein Scripts-------------------------
 
+" to navigate on russion
+set keymap=russian-jcukenwin
+set iminsert=0
+set imsearch=0
+highlight lCursor guifg=NONE guibg=Cyan
+
+" for spell checking
+:set spelllang=ru_yo,en_us
+
 " Jump to particular tab directly
 "NORMAL mode bindings for gvim
 noremap <unique> <M-1> 1gt
@@ -181,7 +190,7 @@ let g:pymode_run_bind = "<F5>"
 let g:pymode_motion = 1
 let g:pymode_python = 'python3'
 let g:pymode_options_colorcolumn = 0
-let g:pymode_lint_ignore = "E741,W0612,W0611"
+let g:pymode_lint_ignore = ["E741", "W0612", "W0611"]
 "W0612,W0611"
 "=====================================================
 " Python-mode end settings
