@@ -53,7 +53,10 @@ endif
 
 "End dein Scripts-------------------------
 
-" to navigate on russion
+set exrc
+set secure
+
+" to navigate on russian
 set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
