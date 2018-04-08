@@ -8,15 +8,15 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/Users/onaga/.local/share/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=/home/onaga/.random/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/Users/onaga/.local/share/dein')
-  call dein#begin('/Users/onaga/.local/share/dein')
+if dein#load_state('/home/onaga/.random')
+  call dein#begin('/home/onaga/.random')
 
   " Let dein manage dein
   " Required:
-  call dein#add('/Users/onaga/.local/share/dein/repos/github.com/Shougo/dein.vim')
+  call dein#add('/home/onaga/.random/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here:
   call dein#add('Shougo/neosnippet.vim')
@@ -53,7 +53,7 @@ endif
 
 "End dein Scripts-------------------------
 
-" to navigate on russion
+" to navigate on russian
 set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
@@ -87,7 +87,7 @@ inoremap <unique> <M-8> <C-O>8gt
 inoremap <unique> <M-9> <C-O>9gt
 inoremap <unique> <M-0> <C-O>10gt
 
-let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python3_host_prog = '/usr/bin/python3'
 let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
 let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
 set guicursor=
