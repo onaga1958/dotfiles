@@ -88,8 +88,8 @@ inoremap <unique> <M-9> <C-O>9gt
 inoremap <unique> <M-0> <C-O>10gt
 
 let g:python3_host_prog = '/usr/local/bin/python3'
-let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
-let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
+let g:deoplete#sources#clang#libclang_path = '/usr/local/opt/llvm/lib/libclang.dylib'
+let g:deoplete#sources#clang#clang_header = '/usr/local/opt/llvm/lib/clang/'
 set guicursor=
 call deoplete#enable()
 autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr>
@@ -101,6 +101,8 @@ map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 " add 256 colors in vim for airline
 set t_Co=256
 let g:airline_theme='luna'
+
+colorscheme delek
 
 " syntastic settings
 set statusline+=%#warningmsg#
