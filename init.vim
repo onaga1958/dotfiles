@@ -110,14 +110,19 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_cpp_compiler_options = ' -std=c++11'
+" use pymode instead
+let g:syntastic_python_checkers=[]
 
 set number
 set expandtab
+set tabstop=4
 set shiftwidth=4
 set clipboard+=unnamedplus
 set foldmethod=indent
 set more
 
+" enable coping from vim
 nnoremap <C-c> "+y
 vnoremap <C-c> "+y
 
