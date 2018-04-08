@@ -53,6 +53,7 @@ endif
 
 "End dein Scripts-------------------------
 
+" secure enable of local .vimrc files
 set exrc
 set secure
 
