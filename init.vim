@@ -38,6 +38,8 @@ if dein#load_state('/Users/onaga/.local/share/dein')
   call dein#add('honza/vim-snippets')
   call dein#add('tpope/vim-surround')
   call dein#add('scrooloose/nerdtree')
+  call dein#add('michalbachowski/vim-wombat256mod')
+
   " You can specify revision/branch/tag.
   call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
@@ -110,7 +112,7 @@ map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 set t_Co=256
 let g:airline_theme='luna'
 
-colorscheme delek
+colorscheme wombat256mod
 
 " nerdtree settings
 map <F2> :NERDTreeToggle<CR>
