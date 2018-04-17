@@ -115,6 +115,7 @@ let g:airline_theme='luna'
 colorscheme wombat256mod
 
 " nerdtree settings
+let NERDTreeShowLineNumbers=1
 map <F2> :NERDTreeToggle<CR>
 
 " syntastic settings
@@ -166,6 +167,7 @@ menu Encoding.koi8-u :e ++enc=koi8-u ++ff=unix<CR>
 map <F7> :emenu Encoding.<TAB>
 
 " tagbar settings
+let g:tagbar_show_linenumbers = -1 " linenumber policy equal to global
 nmap <F8> :TagbarToggle<CR>
 
 let g:deoplete#enable_at_startup = 1
