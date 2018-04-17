@@ -168,6 +168,7 @@ map <F7> :emenu Encoding.<TAB>
 
 " tagbar settings
 let g:tagbar_show_linenumbers = -1 " linenumber policy equal to global
+let g:tagbar_sort = 0 " sort tags according to their order in the source file
 nmap <F8> :TagbarToggle<CR>
 
 let g:deoplete#enable_at_startup = 1
