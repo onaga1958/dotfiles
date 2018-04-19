@@ -33,6 +33,12 @@ if dein#load_state('/home/onaga/.random')
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
   call dein#add('vim-syntastic/syntastic')
+  call dein#add('Yggdroot/indentLine')
+  call dein#add('SirVer/ultisnips')
+  call dein#add('honza/vim-snippets')
+  call dein#add('tpope/vim-surround')
+  call dein#add('scrooloose/nerdtree')
+  call dein#add('michalbachowski/vim-wombat256mod')
 
   " You can specify revision/branch/tag.
   call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -52,6 +58,10 @@ if dein#check_install()
 endif
 
 "End dein Scripts-------------------------
+
+" secure enable of local .vimrc files
+set exrc
+set secure
 
 " to navigate on russian
 set keymap=russian-jcukenwin
@@ -102,6 +112,11 @@ map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 set t_Co=256
 let g:airline_theme='luna'
 
+colorscheme wombat256mod
+
+" nerdtree settings
+map <F2> :NERDTreeToggle<CR>
+
 " syntastic settings
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -114,27 +129,44 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11'
 " use pymode instead
 let g:syntastic_python_checkers=[]
 
+" indentLine settings
+let g:indentLine_char = '│'
+let g:indentLine_color_term = 239
+
+" snippets mappings
+let g:UltiSnipsListSnippets = get(g:, 'UltiSnipsListSnippets', '<c-l>')
+let g:UltiSnipsExpandTrigger = get(g:, 'UltiSnipsExpandTrigger', '<c-y>')
+let g:UltiSnipsJumpForwardTrigger = get(g:, 'UltiSnipsJumpForwardTrigger', '<c-j>')
+let g:UltiSnipsJumpBackwardTrigger = get(g:, 'UltiSnipsJumpBackwardTrigger', '<c-k>')
+
+" set line numbers
 set number
+
+" replace all tabs with 4 spaces
 set expandtab
 set tabstop=4
 set shiftwidth=4
-set clipboard+=unnamedplus
+
+" make folds using indents
 set foldmethod=indent
 set more
 
 " enable coping from vim
+set clipboard+=unnamedplus
 nnoremap <C-c> "+y
 vnoremap <C-c> "+y
 
+" create encoding menu
 set fileencodings=utf-8,cp1251,koi8-r,cp866
 menu Encoding.koi8-r :e ++enc=koi8-r ++ff=unix<CR>
 menu Encoding.windows-1251 :e ++enc=cp1251 ++ff=dos<CR>
 menu Encoding.cp866 :e ++enc=cp866 ++ff=dos<CR>
 menu Encoding.utf-8 :e ++enc=utf8<CR>
 menu Encoding.koi8-u :e ++enc=koi8-u ++ff=unix<CR>
+map <F7> :emenu Encoding.<TAB>
 
-map <F8> :emenu Encoding.<TAB>
-nmap <F7> :TagbarToggle<CR>
+" tagbar settings
+nmap <F8> :TagbarToggle<CR>
 
 let g:deoplete#enable_at_startup = 1
 
