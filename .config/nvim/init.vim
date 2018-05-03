@@ -63,7 +63,7 @@ endif
 set exrc
 set secure
 
-" to navigate on russian
+" to navigate on russian (C-^ to change language)
 set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
@@ -172,7 +172,8 @@ let g:tagbar_sort = 0 " sort tags according to their order in the source file
 nmap <F8> :TagbarToggle<CR>
 
 let g:deoplete#enable_at_startup = 1
-
+let g:deoplete#enable_smart_case = 1
+set completeopt+=noinsert
 " deoplete tab-complete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
