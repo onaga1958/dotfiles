@@ -1,7 +1,8 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=10000
-SAVEHIST=$HISTFILE
+SAVEHIST=$HISTSIZE
+
 bindkey -v
 bindkey "^W" backward-kill-word # vi-backward-kill-word
 bindkey "^H" backward-delete-char # vi-backward-delete-char
