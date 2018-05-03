@@ -8,19 +8,19 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/home/onaga/.random/repos/github.com/Shougo/dein.vim
+set runtimepath+=/Users/onaga/.local/share/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/home/onaga/.random')
-  call dein#begin('/home/onaga/.random')
+if dein#load_state('/Users/onaga/.local/share/dein')
+  call dein#begin('/Users/onaga/.local/share/dein')
 
   " Let dein manage dein
   " Required:
-  call dein#add('/home/onaga/.random/repos/github.com/Shougo/dein.vim')
+  call dein#add('/Users/onaga/.local/share/dein/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here:
-  call dein#add('Shougo/neosnippet.vim')
-  call dein#add('Shougo/neosnippet-snippets')
+  " call dein#add('Shougo/neosnippet.vim')
+  " call dein#add('Shougo/neosnippet-snippets')
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('zchee/deoplete-jedi')
   call dein#add('zchee/deoplete-clang')
@@ -97,9 +97,9 @@ inoremap <unique> <M-8> <C-O>8gt
 inoremap <unique> <M-9> <C-O>9gt
 inoremap <unique> <M-0> <C-O>10gt
 
-let g:python3_host_prog = '/usr/bin/python3'
-let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'
-let g:deoplete#sources#clang#clang_header = '/usr/lib/clang'
+let g:python3_host_prog = '/usr/local/bin/python3'
+let g:deoplete#sources#clang#libclang_path = '/usr/local/opt/llvm/lib/libclang.dylib'
+let g:deoplete#sources#clang#clang_header = '/usr/local/opt/llvm/lib/clang/'
 set guicursor=
 call deoplete#enable()
 autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr>
@@ -173,7 +173,7 @@ nmap <F8> :TagbarToggle<CR>
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
-set completeopt+=noinsert
+" set completeopt+=noinsert
 " deoplete tab-complete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
