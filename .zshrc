@@ -1,9 +1,7 @@
 #!/bin/zsh
 
-source ~/.iterm2_shell_integration.zsh
-
 # Lines configured by zsh-newuser-install
-HISTFILE="~/.history"
+HISTFILE="~/.histfile"
 HISTSIZE=10000
 SAVEHIST=$HISTSIZE
 
@@ -27,6 +25,9 @@ bindkey "^[[B" history-beginning-search-forward
 setopt correctall
 
 export PS1="[%n %1~]$ "
+
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/opt/cuda/lib64:/opt/cuda/extras/CUPTI/lib64"
+export PATH="${PATH}:/opt/cuda/bin"
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
