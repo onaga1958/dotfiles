@@ -28,5 +28,6 @@ setopt correctall
 
 export PS1="[%n %1~]$ "
 
-alias ls='ls --color=auto'
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+alias ls='ls -G'
 alias grep='grep --color=auto'
