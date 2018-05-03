@@ -19,8 +19,8 @@ if dein#load_state('/Users/onaga/.local/share/dein')
   call dein#add('/Users/onaga/.local/share/dein/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here:
-  call dein#add('Shougo/neosnippet.vim')
-  call dein#add('Shougo/neosnippet-snippets')
+  " call dein#add('Shougo/neosnippet.vim')
+  " call dein#add('Shougo/neosnippet-snippets')
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('zchee/deoplete-jedi')
   call dein#add('zchee/deoplete-clang')
@@ -173,7 +173,7 @@ nmap <F8> :TagbarToggle<CR>
 
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
-set completeopt+=noinsert
+" set completeopt+=noinsert
 " deoplete tab-complete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
