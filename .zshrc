@@ -22,8 +22,8 @@ compinit
 # End of lines added by compinstall
 setopt hist_ignore_all_dups
 
-bindkey "^[[A" history-beginning-search-backward
-bindkey "^[[B" history-beginning-search-forward
+bindkey -M vicmd 'j' history-beginning-search-backward
+bindkey -M vicmd 'k' history-beginning-search-forward
 
 setopt correctall
 
