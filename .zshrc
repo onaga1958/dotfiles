@@ -21,6 +21,7 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 setopt hist_ignore_all_dups
+
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
 
@@ -31,3 +32,27 @@ export PS1="[%n %1~]$ "
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 alias ls='ls -G'
 alias grep='grep --color=auto'
+
+# ========================================
+# show vim mode and git branch
+# ========================================
+
+function precmd {
+  GIT="$(git rev-parse --abbrev-ref HEAD)"
+  RPROMPT="[$GIT]"
+  [[ $KEYMAP = vicmd ]] && RPROMPT="[COMMAND MODE] [$GIT]"
+}
+
+function zle-line-init zle-keymap-select {
+  GIT="$(git rev-parse --abbrev-ref HEAD)"
+  RPROMPT="[$GIT]"
+  [[ $KEYMAP = vicmd ]] && RPROMPT="[COMMAND MODE] [$GIT]"
+  () { return $__prompt_status }
+  zle reset-prompt
+}
+
+zle -N zle-keymap-select
+zle -N zle-line-init
+# ========================================
+# end block
+# ========================================
