@@ -53,6 +53,9 @@ function zle-line-init zle-keymap-select {
 
 zle -N zle-keymap-select
 zle -N zle-line-init
+
 # ========================================
 # end block
 # ========================================
+
+export KEYTIMEOUT=1
