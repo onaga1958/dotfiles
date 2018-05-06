@@ -73,29 +73,20 @@ highlight lCursor guifg=NONE guibg=Cyan
 :set spelllang=ru_yo,en_us
 
 " Jump to particular tab directly
-"NORMAL mode bindings for gvim
-noremap <unique> <M-1> 1gt
-noremap <unique> <M-2> 2gt
-noremap <unique> <M-3> 3gt
-noremap <unique> <M-4> 4gt
-noremap <unique> <M-5> 5gt
-noremap <unique> <M-6> 6gt
-noremap <unique> <M-7> 7gt
-noremap <unique> <M-8> 8gt
-noremap <unique> <M-9> 9gt
-noremap <unique> <M-0> 10gt
+noremap <unique> <C-1> 1gt
+noremap <unique> <C-2> 2gt
+noremap <unique> <C-3> 3gt
+noremap <unique> <C-4> 4gt
+noremap <unique> <C-5> 5gt
+noremap <unique> <C-6> 6gt
+noremap <unique> <C-7> 7gt
+noremap <unique> <C-8> 8gt
+noremap <unique> <C-9> 9gt
+noremap <unique> <C-0> 10gt
 
-"INSERT mode bindings for gvim
-inoremap <unique> <M-1> <C-O>1gt
-inoremap <unique> <M-2> <C-O>2gt
-inoremap <unique> <M-3> <C-O>3gt
-inoremap <unique> <M-4> <C-O>4gt
-inoremap <unique> <M-5> <C-O>5gt
-inoremap <unique> <M-6> <C-O>6gt
-inoremap <unique> <M-7> <C-O>7gt
-inoremap <unique> <M-8> <C-O>8gt
-inoremap <unique> <M-9> <C-O>9gt
-inoremap <unique> <M-0> <C-O>10gt
+" map newline insert
+map <Enter> o<ESC>
+map <Shift-Enter> O<ESC>
 
 let g:python3_host_prog = '/usr/local/bin/python3'
 let g:deoplete#sources#clang#libclang_path = '/usr/local/opt/llvm/lib/libclang.dylib'
