@@ -142,6 +142,7 @@ let g:UltiSnipsJumpBackwardTrigger = get(g:, 'UltiSnipsJumpBackwardTrigger', '<c
 
 " set line numbers
 set number
+set relativenumber
 
 " replace all tabs with 4 spaces
 set expandtab
