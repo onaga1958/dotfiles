@@ -1,9 +1,9 @@
 #!/bin/zsh
 
-source ~/.iterm2_shell_integration.zsh
+source /Users/onaga/.iterm2_shell_integration.zsh
 
 # Lines configured by zsh-newuser-install
-HISTFILE="~/.history"
+HISTFILE="/Users/onaga/.history"
 HISTSIZE=10000
 SAVEHIST=$HISTSIZE
 
@@ -15,15 +15,16 @@ bindkey "^?" backward-delete-char # vi-backward-delete-char
 
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '~/.zshrc'
+zstyle :compinstall filename '/Users/onaga/.zshrc'
 
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 setopt hist_ignore_all_dups
+setopt share_history
 
-bindkey -M vicmd 'j' history-beginning-search-backward
-bindkey -M vicmd 'k' history-beginning-search-forward
+bindkey -M vicmd 'k' history-beginning-search-backward
+bindkey -M vicmd 'j' history-beginning-search-forward
 
 setopt correctall
 
