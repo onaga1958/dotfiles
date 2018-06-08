@@ -45,7 +45,7 @@ bindkey -M vicmd 'j' history-beginning-search-forward
 setopt correctall
 
 # set prompt
-export PS1=$'\e[01;32m%n@\e[0m\e[01;31mmac\e[0m:\e[01;34m%2~\e[0m$ '
+export PS1=$'%{\e[01;32m%}%n@%{\e[0m%}%{\e[01;31m%}mac%{\e[0m%}:%{\e[01;34m%}%2~%{\e[0m%}$ '
 
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 alias ls='ls -G'
