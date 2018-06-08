@@ -45,7 +45,7 @@ bindkey -M vicmd 'j' history-beginning-search-forward
 setopt correctall
 
 # set prompt
-export PS1="[%n %1~]$ "
+export PS1=$'\e[01;32m%n@\e[0m\e[01;31mmac\e[0m:\e[01;34m%2~\e[0m$ '
 
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 alias ls='ls -G'
@@ -78,6 +78,8 @@ zle -N zle-line-init
 
 # decrease keytimeout
 export KEYTIMEOUT=1
+
+export PATH="$PATH:/usr/local/bin:/usr/local/munki"
 
 # add dirs with python binaries to PATH
 export PATH="$PATH:/Users/onaga/Library/Python/2.7/bin/:/Users/onaga/Library/Python/3.6/bin/"
