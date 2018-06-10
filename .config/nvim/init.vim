@@ -85,8 +85,7 @@ noremap <unique> <C-9> 9gt
 noremap <unique> <C-0> 10gt
 
 " map newline insert
-map <Enter> o<ESC>
-map <Shift-Enter> O<ESC>
+map <Shift-Enter> o<ESC>
 
 let g:python3_host_prog = '/usr/bin/python3'
 let g:deoplete#sources#clang#libclang_path = '/usr/lib/libclang.so'

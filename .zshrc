@@ -42,7 +42,7 @@ bindkey -M vicmd 'j' history-beginning-search-forward
 setopt correctall
 
 # set prompt
-export PS1="[%n %1~]$ "
+export PS1=$'%{\e[01;32m%}%n@%{\e[0m%}%{\e[01;31m%}mac%{\e[0m%}:%{\e[01;34m%}%2~%{\e[0m%}$ '
 
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/opt/cuda/lib64:/opt/cuda/extras/CUPTI/lib64"
 export PATH="${PATH}:/opt/cuda/bin"
