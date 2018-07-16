@@ -223,7 +223,15 @@ let g:pymode_motion = 1
 let g:pymode_python = 'python3'
 let g:pymode_options_colorcolumn = 0
 let g:pymode_lint_ignore = ["E741", "W0612", "W0611"]
-"W0612,W0611"
+
+fu! CheckWithoutIgnore()
+    let tmp_ignore = g:pymode_lint_ignore
+    let g:pymode_lint_ignore = []
+    :PymodeLint
+    let g:pymode_lint_ignore = tmp_ignore
+endfunction
+
+map <F3> :call CheckWithoutIgnore()<CR>
 "=====================================================
 " Python-mode end settings
 "=====================================================
