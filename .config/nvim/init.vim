@@ -70,7 +70,7 @@ set imsearch=0
 highlight lCursor guifg=NONE guibg=Cyan
 
 " for spell checking
-:set spelllang=ru_yo,en_us
+set spelllang=ru_yo,en_us
 
 " Jump to particular tab directly
 noremap <unique> <C-1> 1gt
@@ -116,9 +116,13 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_cpp_compiler_options = ' -std=c++11'
+let g:syntastic_cpp_compiler_options = '-fsanitize=address,undefined -fno-sanitize-recover=all -fsanitize-undefined-trap-on-error -g -std=c++17 -O2 -Wall -Werror'
+let g:syntastic_cpp_cpplint_exec = 'cpplint'
+let g:syntastic_cpp_clang_tidy_exec = '/usr/local/opt/llvm/bin/clang-tidy'
+let g:syntastic_cpp_checkers = ['cpplint', 'gcc', 'clang_tidy']
+let g:syntastic_cpp_cpplint_args = "--filter \"-legal/copyright\" --linelength=120"
 " use pymode instead
-let g:syntastic_python_checkers=[]
+let g:syntastic_python_checkers = []
 
 " indentLine settings
 let g:indentLine_char = '│'
@@ -134,10 +138,16 @@ let g:UltiSnipsJumpBackwardTrigger = get(g:, 'UltiSnipsJumpBackwardTrigger', '<c
 set number
 set relativenumber
 
+" cursor indicators
+set cursorline
+set cursorcolumn
+
 " replace all tabs with 4 spaces
-set expandtab
-set tabstop=4
-set shiftwidth=4
+set expandtab      " tabs to spaces
+set tabstop=4      " tab width
+set shiftwidth=4   " space number added by < and >
+set smarttab       " delete spaces in the begging
+set si             " smart tab adding
 
 " make folds using indents
 set foldmethod=indent
