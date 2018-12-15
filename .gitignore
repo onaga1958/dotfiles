@@ -2,3 +2,4 @@
 !.zshrc
 !.config/nvim/init.vim
 !.gitignore
+!.gdbinit
