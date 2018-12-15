@@ -69,8 +69,17 @@ function zle-line-init zle-keymap-select {
   zle reset-prompt
 }
 
+function zle-line-finish {
+  GIT="$(git rev-parse --abbrev-ref HEAD)"
+  DATE="$(date +%H:%M:%S)"
+  RPROMPT="[$GIT] [$DATE]"
+  () { return $__prompt_status }
+  zle reset-prompt
+}
+
 zle -N zle-keymap-select
 zle -N zle-line-init
+zle -N zle-line-finish
 
 # ========================================
 # end block
