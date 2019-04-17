@@ -63,8 +63,9 @@ function precmd {
 
 function zle-line-init zle-keymap-select {
   GIT="$(git rev-parse --abbrev-ref HEAD)"
-  RPROMPT="[$GIT]"
-  [[ $KEYMAP = vicmd ]] && RPROMPT="[COMMAND MODE] [$GIT]"
+  DATE="$(date +%H:%M:%S)"
+  RPROMPT="[$GIT] [$DATE]"
+  [[ $KEYMAP = vicmd ]] && RPROMPT="[COMMAND MODE] [$GIT] [$DATE]"
   () { return $__prompt_status }
   zle reset-prompt
 }
