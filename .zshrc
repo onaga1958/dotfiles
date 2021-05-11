@@ -50,6 +50,7 @@ export PS1=$'%{\e[01;32m%}%n@%{\e[0m%}%{\e[01;31m%}mac%{\e[0m%}:%{\e[01;34m%}%2~
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 alias ls='ls -G'
 alias grep='grep --color=auto'
+alias ya="~/arcadia/ya"
 
 # ========================================
 # show vim mode and git branch
@@ -92,4 +93,5 @@ export KEYTIMEOUT=1
 export PATH="$PATH:/usr/local/bin:/usr/local/munki"
 
 # add dirs with python binaries to PATH
-export PATH="$PATH:/Users/onaga/Library/Python/2.7/bin/:/Users/onaga/Library/Python/3.6/bin/"
+export PATH="$PATH:/Users/onaga/Library/Python/2.7/bin/:/Users/onaga/Library/Python/3.8/bin/"
+export PATH="$PATH:/Library/Tex/texbin/"

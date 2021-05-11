@@ -173,7 +173,8 @@ let g:tagbar_sort = 0 " sort tags according to their order in the source file
 nmap <F8> :TagbarToggle<CR>
 
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
+" use smart case
+call deoplete#custom#option('smart_case', v:true)
 " set completeopt+=noinsert
 " deoplete tab-complete
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
@@ -188,7 +189,7 @@ augroup END
 augroup vimrc_autocmds
     autocmd!
     autocmd FileType ruby,python,javascript,c,cpp highlight Excess ctermbg=DarkGrey guibg=Black
-    autocmd FileType ruby,python,javascript,c,cpp match Excess /\%100v.*/
+    autocmd FileType ruby,python,javascript,c,cpp match Excess /\%120v.*/
     autocmd FileType ruby,python,javascript,c,cpp set nowrap
 augroup END
 
@@ -208,7 +209,7 @@ let g:pymode_doc_bind = "<C-d>"
 
 " Code checking
 let g:pymode_lint = 1
-let g:pymode_lint_checker = "pyflakes,pep8"
+let g:pymode_lint_checker = "pyflakes,pep8,pylint"
 let g:pymode_ling_message = 1
 
 " virtualenv support
@@ -223,7 +224,7 @@ let g:pymode_syntax = 1
 let g:pymode_syntax_all = 1
 let g:pymode_syntax_indent_errors = g:pymode_syntax_all
 let g:pymode_syntax_space_errors = g:pymode_syntax_all
-let g:pymode_options_max_line_length = 99
+let g:pymode_options_max_line_length = 120
 
 let g:pymode_folding = 1
 
