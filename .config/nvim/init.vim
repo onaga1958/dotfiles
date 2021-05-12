@@ -1,6 +1,7 @@
-" to setup it for your environment you need to change runtimepath,
-" python3_host_prog, and arguments in dein#load_state, dein#begin
-" and first dein#add
+" to setup it for your environment you need to change python3_host_prog
+" and path to dein in runtimepath and arguments in dein#begin and first dein#add
+" also don't forget to
+" pip3 install --user neovim jedi
 
 "dein Scripts-----------------------------
 if &compatible
@@ -8,45 +9,42 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/Users/onaga/.local/share/dein/repos/github.com/Shougo/dein.vim
+set runtimepath+=/Users/onaga/.cache/dein/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/Users/onaga/.local/share/dein')
-  call dein#begin('/Users/onaga/.local/share/dein')
+call dein#begin('/Users/onaga/.cache/dein')
 
-  " Let dein manage dein
-  " Required:
-  call dein#add('/Users/onaga/.local/share/dein/repos/github.com/Shougo/dein.vim')
+" Let dein manage dein
+" Required:
+call dein#add('/Users/onaga/.cache/dein/repos/github.com/Shougo/dein.vim')
 
-  " Add or remove your plugins here:
-  " call dein#add('Shougo/neosnippet.vim')
-  " call dein#add('Shougo/neosnippet-snippets')
-  call dein#add('Shougo/deoplete.nvim')
-  call dein#add('zchee/deoplete-jedi')
-  call dein#add('zchee/deoplete-clang')
-  call dein#add('Shougo/neocomplete.vim')
-  call dein#add('szw/vim-tags')
-  call dein#add('scrooloose/nerdcommenter')
-  call dein#add('klen/python-mode')
-  call dein#add('majutsushi/tagbar')
-  call dein#add('rosenfeld/conque-term')
-  call dein#add('vim-airline/vim-airline')
-  call dein#add('vim-airline/vim-airline-themes')
-  call dein#add('vim-syntastic/syntastic')
-  call dein#add('Yggdroot/indentLine')
-  call dein#add('SirVer/ultisnips')
-  call dein#add('honza/vim-snippets')
-  call dein#add('tpope/vim-surround')
-  call dein#add('scrooloose/nerdtree')
-  call dein#add('michalbachowski/vim-wombat256mod')
+" Add or remove your plugins here:
+" call dein#add('Shougo/neosnippet.vim')
+" call dein#add('Shougo/neosnippet-snippets')
+call dein#add('Shougo/deoplete.nvim')
+call dein#add('zchee/deoplete-jedi')
+call dein#add('zchee/deoplete-clang')
+call dein#add('Shougo/neocomplete.vim')
+call dein#add('szw/vim-tags')
+call dein#add('scrooloose/nerdcommenter')
+call dein#add('klen/python-mode')
+call dein#add('majutsushi/tagbar')
+call dein#add('rosenfeld/conque-term')
+call dein#add('vim-airline/vim-airline')
+call dein#add('vim-airline/vim-airline-themes')
+call dein#add('vim-syntastic/syntastic')
+call dein#add('Yggdroot/indentLine')
+call dein#add('SirVer/ultisnips')
+call dein#add('honza/vim-snippets')
+call dein#add('tpope/vim-surround')
+call dein#add('scrooloose/nerdtree')
+call dein#add('michalbachowski/vim-wombat256mod')
 
-  " You can specify revision/branch/tag.
-  call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
+" You can specify revision/branch/tag.
+" call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
 
-  " Required:
-  call dein#end()
-  call dein#save_state()
-endif
+" Required:
+call dein#end()
 
 " Required:
 filetype plugin indent on
@@ -87,7 +85,7 @@ noremap <unique> <C-0> 10gt
 " map newline insert
 map <Shift-Enter> o<ESC>
 
-let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python3_host_prog = '/usr/bin/python3'
 let g:deoplete#sources#clang#libclang_path = '/usr/local/opt/llvm/lib/libclang.dylib'
 let g:deoplete#sources#clang#clang_header = '/usr/local/opt/llvm/lib/clang/'
 set guicursor=
