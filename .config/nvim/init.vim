@@ -19,8 +19,8 @@ call dein#begin('/Users/onaga/.cache/dein')
 call dein#add('/Users/onaga/.cache/dein/repos/github.com/Shougo/dein.vim')
 
 " Add or remove your plugins here:
-" call dein#add('Shougo/neosnippet.vim')
-" call dein#add('Shougo/neosnippet-snippets')
+call dein#add('Shougo/neosnippet.vim')
+call dein#add('Shougo/neosnippet-snippets')
 call dein#add('Shougo/deoplete.nvim')
 call dein#add('zchee/deoplete-jedi')
 call dein#add('zchee/deoplete-clang')
@@ -34,8 +34,8 @@ call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes')
 call dein#add('vim-syntastic/syntastic')
 call dein#add('Yggdroot/indentLine')
-call dein#add('SirVer/ultisnips')
-call dein#add('honza/vim-snippets')
+" call dein#add('SirVer/ultisnips')
+" call dein#add('honza/vim-snippets')
 call dein#add('tpope/vim-surround')
 call dein#add('scrooloose/nerdtree')
 call dein#add('michalbachowski/vim-wombat256mod')
@@ -127,6 +127,7 @@ let g:indentLine_char = '│'
 let g:indentLine_color_term = 239
 
 " snippets mappings
+let g:UltiSnipsSnippetDirectories=['UltiSnips', $HOME.'/.conf/nvim/MyUltiSnips']
 let g:UltiSnipsListSnippets = get(g:, 'UltiSnipsListSnippets', '<c-l>')
 let g:UltiSnipsExpandTrigger = get(g:, 'UltiSnipsExpandTrigger', '<c-y>')
 let g:UltiSnipsJumpForwardTrigger = get(g:, 'UltiSnipsJumpForwardTrigger', '<c-j>')

@@ -51,19 +51,27 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 alias ls='ls -G'
 alias grep='grep --color=auto'
 alias ya="~/arcadia/ya"
+alias __="nvim __main__.py"
+alias arc_remount='cd && arc unmount arcadia && arc mount -m arcadia/ -S store/ && echo "remount succeeded" && cd -'
+
+function swap()
+{
+    local TMPFILE=tmp.$$
+    mv "$1" $TMPFILE && mv "$2" "$1" && mv $TMPFILE "$2"
+}
 
 # ========================================
 # show vim mode and git branch
 # ========================================
 
 function precmd {
-  GIT="$(git rev-parse --abbrev-ref HEAD)"
+  GIT="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"
   RPROMPT="[$GIT]"
   [[ $KEYMAP = vicmd ]] && RPROMPT="[COMMAND MODE] [$GIT]"
 }
 
 function zle-line-init zle-keymap-select {
-  GIT="$(git rev-parse --abbrev-ref HEAD)"
+  GIT="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"
   DATE="$(date +%H:%M:%S)"
   RPROMPT="[$GIT] [$DATE]"
   [[ $KEYMAP = vicmd ]] && RPROMPT="[COMMAND MODE] [$GIT] [$DATE]"
@@ -72,7 +80,7 @@ function zle-line-init zle-keymap-select {
 }
 
 function zle-line-finish {
-  GIT="$(git rev-parse --abbrev-ref HEAD)"
+  GIT="$(git rev-parse --abbrev-ref HEAD 2> /dev/null)"
   DATE="$(date +%H:%M:%S)"
   RPROMPT="[$GIT] [$DATE]"
   () { return $__prompt_status }
