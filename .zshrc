@@ -99,6 +99,7 @@ zle -N zle-line-finish
 export KEYTIMEOUT=1
 
 export PATH="$PATH:/usr/local/bin:/usr/local/munki"
+export PATH=/opt/homebrew/bin:$PATH
 
 # add dirs with python binaries to PATH
 export PATH="$PATH:/Users/onaga/Library/Python/2.7/bin/:/Users/onaga/Library/Python/3.8/bin/"
