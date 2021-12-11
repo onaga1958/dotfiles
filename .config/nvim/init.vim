@@ -19,8 +19,6 @@ call dein#begin('/Users/onaga/.cache/dein')
 call dein#add('/Users/onaga/.cache/dein/repos/github.com/Shougo/dein.vim')
 
 " Add or remove your plugins here:
-call dein#add('Shougo/neosnippet.vim')
-call dein#add('Shougo/neosnippet-snippets')
 call dein#add('Shougo/deoplete.nvim')
 call dein#add('zchee/deoplete-jedi')
 call dein#add('zchee/deoplete-clang')
@@ -127,6 +125,14 @@ let g:indentLine_char = '│'
 let g:indentLine_color_term = 239
 
 " snippets mappings
+let g:neosnippet#snippets_directory = $HOME.'/.vim/snippets'
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
 let g:UltiSnipsSnippetDirectories=['UltiSnips', $HOME.'/.conf/nvim/MyUltiSnips']
 let g:UltiSnipsListSnippets = get(g:, 'UltiSnipsListSnippets', '<c-l>')
 let g:UltiSnipsExpandTrigger = get(g:, 'UltiSnipsExpandTrigger', '<c-y>')
@@ -172,6 +178,8 @@ let g:tagbar_sort = 0 " sort tags according to their order in the source file
 nmap <F8> :TagbarToggle<CR>
 
 let g:deoplete#enable_at_startup = 1
+call dein#add('Shougo/neosnippet.vim')
+call dein#add('Shougo/neosnippet-snippets')
 " use smart case
 call deoplete#custom#option('smart_case', v:true)
 " set completeopt+=noinsert
